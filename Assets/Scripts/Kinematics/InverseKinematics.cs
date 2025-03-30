@@ -5,7 +5,7 @@ public static class InverseKinematics
 {
     public static void UpdateAngles(Vector3 targetPosition, RoboticArm arm, float baseLearningRate = 10f)
     {
-        float deltaAngle = 0.3f;
+        float deltaAngle = 0.1f;
 
         int numberOfJoints = arm.AnglesInDegrees.Length;
 

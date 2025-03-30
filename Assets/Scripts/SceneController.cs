@@ -47,8 +47,6 @@ public class SceneController : MonoBehaviour
             InverseKinematicsStep();
             return;
         }
-
-        ResetIterations();
     }
 
     private void ForwardKinematicsStep()
@@ -58,17 +56,11 @@ public class SceneController : MonoBehaviour
 
     private void InverseKinematicsStep()
     {
-        if (iterations > iterationsLimit || Vector3.Distance(armTipPosition, target.Position) < distanceEps)
+        if (Vector3.Distance(armTipPosition, target.Position) < distanceEps)
         {
             return;
         }
 
         InverseKinematics.UpdateAngles(target.Position, roboticArm);
-        iterations++;
-    }
-
-    private void ResetIterations()
-    {
-        iterations = 0;
     }
 }
